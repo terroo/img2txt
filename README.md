@@ -1,4 +1,7 @@
 # Img2Txt
+
+![Img2Txt](./resources/img/img2txt.png) 
+
 Graphic application to extract text from image
 
 ---
