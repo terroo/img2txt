@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Img2Txt
+Comment=Extract text from image
+Exec=img2txt
+Icon=img2txt
+Categories=Qt;Utility;
