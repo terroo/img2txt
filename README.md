@@ -17,7 +17,7 @@ Graphic application to extract text from image
 
 Example of dependencies on [Ubuntu](https://ubuntu.com/):
 
-Download and install [from here](https://www.qt.io/download-qt-installer), like this [video](https://www.youtube.com/watch?v=2fXBeN1EUzs) .
+Download and install **Qt** [from here](https://www.qt.io/download-qt-installer), like this [video](https://www.youtube.com/watch?v=2fXBeN1EUzs) .
 > Remember the path where you installed it and add Qt6 support and Qt5 compatibility
 
 And now install the packages:
