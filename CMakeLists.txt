@@ -70,11 +70,19 @@ if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(img2txt)
 endif()
 
+add_custom_command(
+    TARGET img2txt
+    POST_BUILD
+    COMMAND bash ${CMAKE_CURRENT_LIST_DIR}/resources/generate.sh
+)
+
 # make install
 install(DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/resources/img DESTINATION
   /usr/share/pixmaps/img2txt)
-install(DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/resources/img/img2txt.png DESTINATION
-  /usr/share/pixmaps/img2txt.png)
+install(FILES ${CMAKE_CURRENT_LIST_DIR}/resources/img/img2txt.png DESTINATION 
+  /usr/share/pixmaps)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/img2txt.desktop DESTINATION
+  /usr/share/applications)
 install(TARGETS img2txt DESTINATION bin)
 
 # make uninstall
@@ -85,6 +93,6 @@ add_custom_command(
     COMMENT "Uninstall files with install_manifest.txt"
     COMMAND xargs rm -vf < install_manifest.txt || echo Nothing in install_manifest.txt to be uninstalled!
     COMMAND rm -rf /usr/share/pixmaps/img2txt
-    COMMAND rm /usr/share/pixmaps/img2txt.png
+    #COMMAND rm /usr/share/applications/img2txt.desktop
 )
 

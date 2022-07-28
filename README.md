@@ -30,18 +30,28 @@ sudo apt install build-essential cmake make g++ libtesseract-dev libopencv-dev
 # Building and Install
 > Change `PATH/TO/Qt` by the path where you installed Qt
 
-If you chose to install Qt in your home directory, just change `PATH/TO/Qt` to `${HOME}/Qt`, also inform the version of Qt6 that is on your system, that is, change `6.X.X` to the corresponding version.
+If you chose to install Qt in your home directory, just change `[PATH/TO/Qt]` to `${HOME}/Qt`, also inform the version of Qt6 that is on your system, that is, change `[6.X.X]` to the corresponding version.
+> In my case I installed it on `${HOME}/.local/bin` so I run: `cmake -B build -DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=${HOME}/.local/bin/Qt/Tools/QtCreator/share/qtcreator/package-manager/auto-setup.cmake -DCMAKE_PREFIX_PATH:PATH=${HOME}/.local/bin/Qt/6.3.0/gcc_64` .
 
 And then clone, build and install:
+
+> NOTE: Change: `[PATH/TO]` and `6.X.X` 
 ```bash
 git clone https://github.com/terroo/img2txt
 cd img2txt
 cmake -B build \
-    -DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=PATH/TO/Qt/Tools/QtCreator/share/qtcreator/package-manager/auto-setup.cmake \
-    -DCMAKE_PREFIX_PATH:PATH=PATH/TO/Qt/6.X.X/gcc_64
+    -DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=[PATH/TO]/Qt/Tools/QtCreator/share/qtcreator/package-manager/auto-setup.cmake \
+    -DCMAKE_PREFIX_PATH:PATH=PATH/TO/Qt/[6.X.X]/gcc_64
 cd build
 make
 sudo make install
+```
+
+Before opening the app add these lines to your BASHRC:
+```bash
+echo 'export LD_LIBRARY_PATH="[PATH/TO]/Qt/[6.X.X]/gcc_64/lib"' >> ~/.bashrc
+exec $SHELL
+source ~/.bashrc
 ```
 
 ---

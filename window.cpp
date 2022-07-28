@@ -8,7 +8,8 @@ Window::Window(QWidget *parent)
     ui->setupUi(this);
 
     this->img2txt = std::make_shared<Img2Txt>();
-    this->path = this->text = {};
+    this->path = "";
+    this->text = "";
     ui->textEdit->setDisabled(true);
     ui->textEdit->setStyleSheet("font-size: 27px");
 
