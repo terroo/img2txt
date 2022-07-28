@@ -42,8 +42,6 @@ sudo make install
 ---
 
 # Building and Install
-> Change `PATH/TO/Qt` by the path where you installed Qt
-
 And then clone, build and install:
 
 > **NOTE**: `[PATH/TO]/Qt/[VERSION]` is the location you installed **Qt** and the **Version** number, example: `${HOME}/Qt/6.3.0`
