@@ -22,7 +22,21 @@ Download and install [from here](https://www.qt.io/download-qt-installer), like 
 
 And now install the packages:
 ```bash
-sudo apt install build-essential cmake make g++ libtesseract-dev libopencv-dev
+sudo apt install build-essential cmake make g++ \
+  libtesseract-dev wget unzip libopencv-dev \
+  libgtk-3-dev tesseract-ocr tesseract-ocr-por \
+  libpng++-dev libpng16-16 libpng-dev
+```
+
+Install OpenCV:
+```bash
+wget -O opencv.zip https://github.com/opencv/opencv/archive/master.zip
+unzip opencv.zip
+mv opencv-master opencv
+mkdir -p build && cd build
+cmake ../opencv
+make
+sudo make install
 ```
 
 ---
