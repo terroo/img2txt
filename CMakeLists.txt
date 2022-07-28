@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 project(Img2Txt VERSION 0.1 LANGUAGES CXX)
 
 if(NOT DEFINED QT_DIR_VER)
-  message(FATAL_ERROR "DEfina a porra do QT_DIR_VER")
+  message(FATAL_ERROR "Set the variable: QT_DIR_VER .")
 else()
   string(FIND ${QT_DIR_VER} "6\." posqt)
   string(SUBSTRING ${QT_DIR_VER} 0 ${posqt} dirqt)
