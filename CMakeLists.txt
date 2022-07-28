@@ -69,3 +69,22 @@ set_target_properties(img2txt PROPERTIES
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(img2txt)
 endif()
+
+# make install
+install(DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/resources/img DESTINATION
+  /usr/share/pixmaps/img2txt)
+install(DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/resources/img/img2txt.png DESTINATION
+  /usr/share/pixmaps/img2txt.png)
+install(TARGETS img2txt DESTINATION bin)
+
+# make uninstall
+add_custom_target("uninstall" COMMENT "Uninstall installed files")
+add_custom_command(
+    TARGET "uninstall"
+    POST_BUILD
+    COMMENT "Uninstall files with install_manifest.txt"
+    COMMAND xargs rm -vf < install_manifest.txt || echo Nothing in install_manifest.txt to be uninstalled!
+    COMMAND rm -rf /usr/share/pixmaps/img2txt
+    COMMAND rm /usr/share/pixmaps/img2txt.png
+)
+
