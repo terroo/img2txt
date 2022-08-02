@@ -49,7 +49,7 @@ And then clone, build and install:
 git clone https://github.com/terroo/img2txt
 cd img2txt
 mkdir build && cd build
-cmake -DQT_DIR_VER="[PATH/TO]/Qt/[VERSION]"
+cmake -DQT_DIR_VER="[PATH/TO]/Qt/[VERSION]" ..
 make
 sudo make install
 sudo chmod +x /usr/local/bin/img2txt # IMPORTANT POS INSTALL
